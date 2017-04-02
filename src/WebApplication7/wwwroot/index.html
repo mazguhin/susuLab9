@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Список пользователей</title>
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Добавить пользователя
+                    </div>
+                    <div class="panel-body">
+                        <div id="errors" class="alert alert-danger" style="display:none;"></div>
+                        <form name="userForm" id="userForm">
+                            <div class="form-group">
+                                <label for="name">Имя:</label>
+                                <input class="form-control" name="name" id="name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Возраст:</label>
+                                <input class="form-control" name="age" id="age" />
+                            </div>
+                            <div class="panel-body">
+                                <button type="submit" class="btn btn-sm btn-primary" data-bind="click: create">Добавить</button>
+                                <a class="btn btn-sm btn-primary" data-bind="click: reset">Сбросить</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Список пользователей <a class="btn btn-sm btn-primary" data-bind="click: update">Обновить</a>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-condensed table-striped table-bordered">
+                            <thead><tr><th>Id</th><th>Имя</th><th>Возраст</th></tr></thead>
+                            <tbody data-bind="foreach: localusers">
+                                <tr>
+                                    <td data-bind="text: id"></td>
+                                    <td data-bind="text: name"></td>
+                                    <td data-bind="text: age"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/knockout/dist/knockout.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
