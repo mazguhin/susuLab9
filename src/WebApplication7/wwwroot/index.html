@@ -17,6 +17,7 @@
                     <div class="panel-body">
                         <div id="errors" class="alert alert-danger" style="display:none;"></div>
                         <form name="userForm" id="userForm">
+                            <input type="hidden" name="id" id="nowId" value="0" />
                             <div class="form-group">
                                 <label for="name">Имя:</label>
                                 <input class="form-control" name="name" id="name" />
@@ -26,7 +27,7 @@
                                 <input class="form-control" name="age" id="age" />
                             </div>
                             <div class="panel-body">
-                                <button type="submit" class="btn btn-sm btn-primary" data-bind="click: create">Добавить</button>
+                                <button type="submit" class="btn btn-sm btn-primary" data-bind="click: sub">Сохранить</button>
                                 <a class="btn btn-sm btn-primary" data-bind="click: reset">Сбросить</a>
                             </div>
                         </form>
@@ -39,12 +40,16 @@
                     </div>
                     <div class="panel-body">
                         <table class="table table-condensed table-striped table-bordered">
-                            <thead><tr><th>Id</th><th>Имя</th><th>Возраст</th></tr></thead>
+                            <thead><tr><th>Id</th><th>Имя</th><th>Возраст</th><th></th></tr></thead>
                             <tbody data-bind="foreach: localusers">
                                 <tr>
                                     <td data-bind="text: id"></td>
                                     <td data-bind="text: name"></td>
                                     <td data-bind="text: age"></td>
+                                    <td>
+                                        <a href="#" data-bind="click: $parent.edit">[Редактировать]</a>
+                                        <a href="#" data-bind="click: $parent.delete">[Удалить]</a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
